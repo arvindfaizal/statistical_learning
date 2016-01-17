@@ -416,7 +416,8 @@ Ship = function () {
             var rad = ((this.rot-90) * Math.PI)/180;
             var vectorx = Math.cos(rad);
             var vectory = Math.sin(rad);
-            // move to the nose of the ship
+            // nose of the ship.
+
             bullet.x = this.x + vectorx * 4;
             bullet.y = this.y + vectory * 4;
             bullet.vel.x = 6 * vectorx + this.vel.x;
@@ -619,7 +620,7 @@ Bullet = function () {
 Bullet.prototype = new Sprite();
 
 AlienBullet = function () {
-  this.init("alienbullet");
+  this.init("aliengoli");
 
   this.draw = function () {
     if (this.visible) {
@@ -652,7 +653,7 @@ Asteroid = function () {
   this.scale = 6;
   this.postMove = this.wrapPostMove;
 
-  this.collidesWith = ["ship", "bullet", "bigalien", "alienbullet"];
+  this.collidesWith = ["ship", "goli", "bigalien", "alienbullet"];
 
   this.collision = function (other) {
     SFX.explosion();
@@ -768,7 +769,6 @@ GridNode = function () {
 };
 
 // borrowed from typeface-0.14.js
-// http://typeface.neocracy.org
 Text = {
   renderGlyph: function (ctx, face, char) {
 
